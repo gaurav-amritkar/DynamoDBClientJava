@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+}
+
+group 'org.aws'
+version '1.0-SNAPSHOT'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/software.amazon.awssdk/dynamodb
+    implementation 'software.amazon.awssdk:dynamodb:2.17.250'
+    // https://mvnrepository.com/artifact/software.amazon.awssdk/dynamodb-enhanced
+    implementation 'software.amazon.awssdk:dynamodb-enhanced:2.17.250'
+
+    // https://mvnrepository.com/artifact/com.opencsv/opencsv
+    implementation 'com.opencsv:opencsv:5.6'
+
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
